@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server side web scrapper to fetch data and send to client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "overrevvv",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^19.8.5"
+  }
+}
