@@ -1,17 +1,40 @@
-const puppeteer = require('puppeteer') //? Importing the module
-const fs = require('fs/promises')//? Async Promises
+const axios = require('axios'); //? Module for put requests on target website
+const cheerio = require('cheerio'); //? Module equivalent to JQuery but for Server Side
+const express = require('express'); //? Basic backend framework  
 
-async function start() {
-    //?Creating the browser to surf internet with puppeteer with await that will wait for it
-    const browser = await puppeteer.launch();
-    //? Creating a new page
-    const page = await browser.newPage();
-    //? Visting the URL
-    await page.goto("https://learnwebcode.github.io/practice-requests/");
+const app = express() //? using express
+const port = 3000 //? Basic Port 
+
+const url1 = "https://www.animenewsnetwork.com/"; //? Target website
+//* Axios returns promises that's why we're using .then()
 
 
-    //? Closing the browser
-    await browser.close();
-}
+app.get('/animenewsnetwork', (req, res) => {
+    axios(url1)
+        .then(respone => {
+            const html = respone.data; //*Storing the html respone in const html variable
+            const $ = cheerio.load(html);//* Cheerio is loading up the html to find the right elements
+            const article = [];
+            $('div.herald.box.news', html).each(function () {
+                const title = $(this).find('div.wrap h3 a').text()
+                const link = url1 + $(this).find('a').attr('href');
+                const img = url1 + $(this).find('div.thumbnail').attr('data-src');
 
-start()
+                article.push({
+                    title,
+                    link,
+                    img
+                })
+            });
+            // console.log(article);
+            res.json(article)
+        }).catch(err => console.log(err));
+})
+
+app.get('/', (req, res) => {
+    res.send("You are Nigger")
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+})
