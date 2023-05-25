@@ -18,12 +18,10 @@ onBeforeMount(() => {
 })
 
 onUpdated(()=>{
-    setTimeout(()=>{
     window.scrollTo(0,500);
-    },100);
     setTimeout(()=>{
     window.scrollTo(0,0);
-    },110);
+    },10);
 })
 </script>
 <template>

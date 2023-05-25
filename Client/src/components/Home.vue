@@ -1,9 +1,10 @@
 <template>
     <section>
         <h1 class="animateCharacter">Web Scrapper</h1>
-        <p>A Real Time Web Scrapper that is currently Scrapping data from 2 Websites</p>
-        <p> <a href="https://www.animenewsnetwork.com/" target="_blank">Anime News Network</a> And <a
-                href="https://www.hotcars.com/" target="_blank">Hot Cars</a></p>
+        <p>A Real Time Web Scrapper that is currently Scrapping data from 3 Websites</p>
+        <p> <a href="https://www.animenewsnetwork.com/" target="_blank">Anime News Network</a>, <a
+                href="https://www.hotcars.com/" target="_blank">Hot Cars</a> And <a
+                href="https://www.developer-tech.com/" target="_blank">Developer Tech</a></p>
     </section>
 </template>
 <style>

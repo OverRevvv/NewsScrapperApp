@@ -31,6 +31,7 @@ header {
     background: rgba(0, 0, 0, 0.589);
     backdrop-filter: saturate(180%) blur(20px);
     font-family: 'Source Code Pro', monospace;
+    user-select: none;
 }
 header .logo {
     color: #fff;
@@ -65,6 +66,9 @@ header ul li a:hover {
     border-bottom: 5px solid #b500ff;
     /* color: #2b1055; */
     color: #b500ff;
+}
+header ul li a:focus {
+    outline: none;
 }
 header ul li a:hover,
 .router-link-active {
