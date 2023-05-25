@@ -1,7 +1,7 @@
 <template>
     <header>
         <router-link to="/" class="logo">
-            <img src="src/assets/app.png" alt="LOGO">
+            <img src="/src/assets/app.png" alt="LOGO">
         </router-link>
         <ul>
             <li><router-link to="/anime">Anime</router-link></li>
@@ -9,15 +9,14 @@
             <li><router-link to="/tech">Tech</router-link></li>
         </ul>
     </header>
-    <router-view />
-    <!-- <router-view v-slot="{ Component}">
+    <!-- <router-view /> -->
+    <router-view v-slot="{ Component}">
         <transition 
-        enter-active-class="animate__animated animate__fadeInRight" 
-        leave-active-class="animate__animated animate__fadeInLeft"
+        enter-active-class="animate__animated animate__fadeInUp" 
          mode="out-in">
             <component :is="Component" />
         </transition>
-    </router-view> -->
+    </router-view>
 </template>
 <style>
 header {
@@ -33,7 +32,6 @@ header {
     backdrop-filter: saturate(180%) blur(20px);
     font-family: 'Source Code Pro', monospace;
 }
-
 header .logo {
     color: #fff;
     font-weight: 700;
@@ -41,23 +39,19 @@ header .logo {
     font-size: 2em;
     text-transform: uppercase;
 }
-
 header .logo img {
     width: 3rem;
     transform: translateY(6px);
 }
-
 header ul {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 header ul li {
     list-style: none;
     margin-left: 20px;
 }
-
 header ul li a {
     font-size: 1.5rem;
     text-decoration: none;
@@ -65,7 +59,6 @@ header ul li a {
     color: #fff;
     border-radius: 20px;
 }
-
 header ul li a:hover {
     padding-bottom: 20px;
     border-radius: 0;
@@ -73,7 +66,6 @@ header ul li a:hover {
     /* color: #2b1055; */
     color: #b500ff;
 }
-
 header ul li a:hover,
 .router-link-active {
     padding-bottom: 20px;
@@ -82,7 +74,6 @@ header ul li a:hover,
     /* color: #2b1055; */
     color: #b500ff;
 }
-
 header .logo:hover,
 header .logo.router-link-active {
     border-bottom: none;

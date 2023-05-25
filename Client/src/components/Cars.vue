@@ -1,9 +1,8 @@
 <script setup>
-import { ref, onBeforeMount } from 'vue';
+import { ref, onBeforeMount, onUpdated } from 'vue';
 import axios from 'axios'
 const articles = ref([]);
-const url = "http://localhost:3000/cars";
-// onMounted(() => {
+const url = "http://localhost:3000/cars/data";
 onBeforeMount(() => {
     axios.get(url)
         .then(response => {
@@ -12,6 +11,15 @@ onBeforeMount(() => {
         .catch(error => {
             console.error(error);
         })
+})
+
+onUpdated(()=>{
+    setTimeout(()=>{
+    window.scrollTo(0,1000);
+    },100);
+    setTimeout(()=>{
+    window.scrollTo(0,0);
+    },110);
 })
 </script>
 <template>
@@ -27,7 +35,7 @@ onBeforeMount(() => {
                 <p class="previewSkeleton"></p>
             </div>
         </div>
-        <div class="cards" v-for="(article, index) in articles" :key="index">
+        <div class="cards" v-motion-slide-visible-left v-for="(article, index) in articles" :key="index">
             <a :href="article.link" target="_blank">
                 <div class="figure" v-html="article.figure"></div>
                 <div class="details">
@@ -51,6 +59,9 @@ onBeforeMount(() => {
     background: transparent;
     backdrop-filter: saturate(100%) blur(40px);
     font-family: 'Space Mono', monospace;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cards a {
@@ -70,10 +81,7 @@ onBeforeMount(() => {
 }
 
 .preview {
-    padding: 10px 0;
     width: 100%;
-    height: 15%;
-    overflow: hidden;
     text-align: center;
     font-family: 'Prompt', sans-serif;
 }
@@ -82,13 +90,6 @@ onBeforeMount(() => {
     padding: 10px 0px;
 }
 
-.preview p {
-    margin: 0;
-    padding: 0;
-    white-space: wrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 /* FOR SKELETON */
 .skeleton {
     background: transparent;

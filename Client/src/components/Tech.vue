@@ -1,9 +1,8 @@
 <script setup>
-import { ref, onBeforeMount } from 'vue';
+import { ref, onBeforeMount, onUpdated } from 'vue';
 import axios from 'axios'
 const articles = ref([]);
-const url = "http://localhost:3000/tech";
-// onMounted(() => {
+const url = "http://localhost:3000/tech/data";
 onBeforeMount(() => {
     axios.get(url)
         .then(response => {
@@ -12,6 +11,14 @@ onBeforeMount(() => {
         .catch(error => {
             console.error(error);
         })
+})
+onUpdated(()=>{
+    setTimeout(()=>{
+    window.scrollTo(0,1000);
+    },100);
+    setTimeout(()=>{
+    window.scrollTo(0,0);
+    },110);
 })
 </script>
 <template>
@@ -27,7 +34,7 @@ onBeforeMount(() => {
                 <p class="previewSkeleton"></p>
             </div>
         </div>
-        <div class="cards" v-for="(article, index) in articles" :key="index">
+        <div class="cards" v-motion-slide-visible-left v-for="(article, index) in articles" :key="index">
             <a :href="article.articleLink" target="_blank">
                 <div class="techCover">
                     <img class="coverImage" :src="article.figure" alt="">
@@ -43,22 +50,17 @@ onBeforeMount(() => {
     </div>
 </template>
 <style scoped>
+/* .cards{
+    width: 400px; 
+    height: 400px;
+} */
+
 .techCover {
     width: 100%;
-    height: auto;
     overflow: hidden;
 }
-.techCover img{
-    width: 80%;
-}
-.preview {
-    height: 10%;
-    width: 100%;
-    overflow: hidden;
-}
-.preview p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+.techCover img {
+    width: 95%;
 }
 </style>

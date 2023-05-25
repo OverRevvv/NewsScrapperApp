@@ -1,22 +1,24 @@
-const axios = require('axios'); //? Module for put requests on target website
-const cheerio = require('cheerio'); //? Module equivalent to JQuery but for Server Side
-const express = require('express'); //? Basic backend framework  
+const axios = require('axios'); //* Module for put requests on target website
+const cheerio = require('cheerio'); //* Module equivalent to JQuery but for Server Side
+const express = require('express'); //* Basic backend framework  
 const cors = require('cors')
-const app = express() //? using express
-const port = 3000 //? Basic Port 
+const app = express() //* using express
+const port = 3000 //* Basic Port 
+const path = require('path');
 
-const url1 = "https://www.animenewsnetwork.com/"; //? Target website
+//* Target websites
+const url1 = "https://www.animenewsnetwork.com/";
+const url2 = "https://www.hotcars.com/";
+const url3 = "https://www.developer-tech.com/";
 // const url2 = "https://www.autoblog.com/tag/jdm/";
 // const url2 = "https://carbuzz.com/tags/jdm";
-const url2 = "https://www.hotcars.com/";
 // const url3 = "https://www.wired.com/tag/programming/";
-const url3 = "https://www.developer-tech.com/";
 //* Axios returns promises that's why we're using .then()
 
 app.use(cors()); //* Setting up CORS for Cross Origin Request 
 
-app.get('/animenewsnetwork', (req, res) => {
-    console.log("Get Request On /animenewsnetwork has been made")
+app.get('/animenewsnetwork/data', (req, res) => {
+    // console.log("Get Request On /animenewsnetwork has been made")
     axios(url1)
         .then(respone => {
             const html = respone.data; //*Storing the html respone in const html variable
@@ -49,14 +51,13 @@ app.get('/animenewsnetwork', (req, res) => {
         }).catch(err => console.error(err));
 })
 
-app.get('/cars', (req, res) => {
-    console.log("Get Request On /cars has been made")
+app.get('/cars/data', (req, res) => {
+    // console.log("Get Request On /cars has been made")
     axios(url2)
         .then(respone => {
-            const html = respone.data; //*Storing the html respone in const html variable
-            const $ = cheerio.load(html);//* Cheerio is loading up the html to find the right elements
+            const html = respone.data;
+            const $ = cheerio.load(html);
             const articles = [];
-            // todo: fetch the damn link for the article 
             $('div.section-latest-news div.display-card.article', html).each(function () {
                 const title = $(this).find('h5.display-card-title a').text();
                 const link = $(this).find('h5.display-card-title a').attr('href');
@@ -76,20 +77,19 @@ app.get('/cars', (req, res) => {
             res.json(articles)
         }).catch(err => console.error(err));
 })
-app.get('/tech', (req, res) => {
-    console.log("Get Request On /tech has been made")
+app.get('/tech/data', (req, res) => {
+    // console.log("Get Request On /tech has been made")
     axios(url3)
         .then(respone => {
-            const html = respone.data; //*Storing the html respone in const html variable
-            const $ = cheerio.load(html);//* Cheerio is loading up the html to find the right elements
+            const html = respone.data;
+            const $ = cheerio.load(html);
             const articles = [];
-            // todo: fetch the damn link for the article 
             $('article.archive-post section.entry-content', html).each(function () {
                 const rawTitle = $(this).find('header.article-header h3').text();
                 const title = rawTitle.trim();
                 const articleLink = $(this).find('header.article-header a').attr('href')
-                const rawFigure = $(this).find('div.image img').attr('src');
-                const figure = rawFigure.trim();
+                const figure = $(this).find('div.image img').attr('src');
+                // const figure = rawFigure.trim();
                 const content = $(this).find('div.cell.small-12.medium-8.large-6 p').eq(1).text();
                 const timeAndTopic = $(this).find('div.content').html();
                 articles.push({
@@ -103,8 +103,20 @@ app.get('/tech', (req, res) => {
             res.json(articles)
         }).catch(err => console.error(err));
 })
-app.get('/', (req, res) => {
-    res.send("You are Nigger and this is a webscrapper")
+
+//* Serve static files from the `dist` folder
+app.use(express.static(path.join(__dirname, "../Client/dist")));
+
+//* Create a route for the index page
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "../Client/dist/index.html"));
+});
+
+//* Create a catch-all route for all other requests
+app.get("*", (req, res) => {
+  // Respond with a 404 error for all non-API requests
+//   res.status(404).send("404 Not Found");
+    res.redirect("/")
 })
 
 app.listen(port, () => {
