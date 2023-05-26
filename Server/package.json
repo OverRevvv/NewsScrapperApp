@@ -4,7 +4,8 @@
   "description": "server side web scrapper to fetch data and send to client",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "build": "node index.js"
   },
   "author": "overrevvv",
   "license": "ISC",
