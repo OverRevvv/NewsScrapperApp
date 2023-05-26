@@ -2,9 +2,13 @@
     <section>
         <h1 class="animateCharacter">Web Scrapper</h1>
         <p>A Real Time Web Scrapper that is currently Scrapping data from 3 Websites</p>
-        <p> <a href="https://www.animenewsnetwork.com/" target="_blank">Anime News Network</a>, <a
-                href="https://www.hotcars.com/" target="_blank">Hot Cars</a> And <a
-                href="https://www.developer-tech.com/" target="_blank">Developer Tech</a></p>
+        <div class="source">
+            <ul>
+                <li><a href="https://www.animenewsnetwork.com/" target="_blank">Anime News Network</a></li>
+                <li><a href="https://www.hotcars.com/" target="_blank">Hot Cars</a></li>
+                <li><a href="https://www.developer-tech.com/" target="_blank">Developer Tech</a></li>
+            </ul>
+        </div>
     </section>
 </template>
 <style>
@@ -23,14 +27,22 @@ section {
 
 section p {
     padding: 20px 0;
-    color: black;
+    color: #00e1ff;
     font-size: 1.5rem;
 
 }
 
-section a {
-    color: #00e1ff;
-    padding: 10px;
+.source {
+    margin-top: 4rem;
+}
+
+.source ul li {
+    list-style: none;
+}
+
+.source ul li a {
+    color: #b500ff;
+    font-size: 1.5rem;
     text-decoration: none;
 }
 
@@ -51,12 +63,23 @@ section a {
     -webkit-text-fill-color: transparent;
     animation: textclip 2s linear infinite;
     display: inline-block;
-    /* font-size: 190px; */
     font-size: 8rem;
 }
 
 @keyframes textclip {
     to {
         background-position: 200% center;
+    }
+}
+
+@media screen and (min-width: 340px) and (max-width: 500px) {
+    .animateCharacter {
+        position: absolute;
+        top: 9rem;
+        font-size: 3rem;
+    }
+
+    .source {
+        margin-top: 4rem;
     }
 }</style>

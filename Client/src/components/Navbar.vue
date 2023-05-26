@@ -10,10 +10,8 @@
         </ul>
     </header>
     <!-- <router-view /> -->
-    <router-view v-slot="{ Component}">
-        <transition 
-        enter-active-class="animate__animated animate__fadeInUp" 
-         mode="out-in">
+    <router-view v-slot="{ Component }">
+        <transition enter-active-class="animate__animated animate__fadeInUp" mode="out-in">
             <component :is="Component" />
         </transition>
     </router-view>
@@ -33,6 +31,7 @@ header {
     font-family: 'Source Code Pro', monospace;
     user-select: none;
 }
+
 header .logo {
     color: #fff;
     font-weight: 700;
@@ -40,19 +39,23 @@ header .logo {
     font-size: 2em;
     text-transform: uppercase;
 }
+
 header .logo img {
     width: 3rem;
     transform: translateY(6px);
 }
+
 header ul {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 header ul li {
     list-style: none;
     margin-left: 20px;
 }
+
 header ul li a {
     font-size: 1.5rem;
     text-decoration: none;
@@ -60,6 +63,7 @@ header ul li a {
     color: #fff;
     border-radius: 20px;
 }
+
 header ul li a:hover {
     padding-bottom: 20px;
     border-radius: 0;
@@ -67,9 +71,11 @@ header ul li a:hover {
     /* color: #2b1055; */
     color: #b500ff;
 }
+
 header ul li a:focus {
     outline: none;
 }
+
 header ul li a:hover,
 .router-link-active {
     padding-bottom: 20px;
@@ -78,10 +84,32 @@ header ul li a:hover,
     /* color: #2b1055; */
     color: #b500ff;
 }
+
 header .logo:hover,
 header .logo.router-link-active {
     border-bottom: none;
     color: inherit;
     padding-bottom: 0;
+}
+
+@media screen and (min-width: 340px) and (max-width: 500px) {
+    header {
+        padding: 10px 0;
+        position: relative;
+        top: 0;
+        width: 100vw;
+        align-items: center;
+    }
+
+    header .logo {
+        position: relative;
+        left: 8px;
+    }
+
+    header ul li {
+        list-style: none;
+        margin-left: 5px;
+    }
+
 }
 </style>

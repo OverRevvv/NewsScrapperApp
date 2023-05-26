@@ -35,7 +35,7 @@ onUpdated(()=>{
                 <p class="previewSkeleton"></p>
             </div>
         </div>
-        <div class="cards" v-motion-slide-visible-left v-for="(article, index) in articles" :key="index">
+        <div class="cards" v-motion-pop-visible v-for="(article, index) in articles" :key="index">
             <a :href="article.articleLink" target="_blank">
                 <div class="techCover">
                     <img class="coverImage" :src="article.figure" alt="">
