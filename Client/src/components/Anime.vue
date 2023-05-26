@@ -4,7 +4,8 @@ import axios from 'axios'
 
 // Initial Array to store data that'll be fetced from backend
 const articles = ref([]);
-const url = "http://localhost:3000/animenewsnetwork/data";
+// const url = "http://localhost:3000/animenewsnetwork/data";
+const url = "https://news-scrapper-app.vercel.app/animenewsnetwork/data";
 
 onBeforeMount(() => {
     axios.get(url)

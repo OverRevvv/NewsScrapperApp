@@ -2,7 +2,8 @@
 import { ref, onBeforeMount, onUpdated } from 'vue';
 import axios from 'axios'
 const articles = ref([]);
-const url = "http://localhost:3000/cars/data";
+// const url = "http://localhost:3000/cars/data";
+const url = "https://news-scrapper-app.vercel.app/cars/data";
 onBeforeMount(() => {
     axios.get(url)
         .then(response => {
