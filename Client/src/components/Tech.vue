@@ -1,25 +1,22 @@
 <script setup>
-import { ref, onBeforeMount, onUpdated } from 'vue';
-import axios from 'axios'
+import { ref, onUpdated } from 'vue';
+import G from '../fetchAPI';
 const articles = ref([]);
 // const url = "http://localhost:3000/tech/data";
-const url = "https://news-scrapper-app.vercel.app/tech/data";
-onBeforeMount(() => {
-    axios.get(url)
-        .then(response => {
-            articles.value = response.data
-        })
-        .catch(error => {
-            console.error(error);
-        })
-})
-onUpdated(()=>{
+const url = "/tech/data";
+const getData = async () => {
+    let rp = await G.doAjax(url);
+    if (!rp) return;
+    articles.value = rp;
+}
+getData()
+onUpdated(() => {
     // setTimeout(()=>{
-    window.scrollTo(0,1000);
+    window.scrollTo(0, 1000);
     // },100);
-    setTimeout(()=>{
-    window.scrollTo(0,0);
-    },10);
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 10);
 })
 </script>
 <template>

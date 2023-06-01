@@ -1,22 +1,18 @@
 <script setup>
-import {  ref, onBeforeMount, onUpdated } from 'vue';
-import axios from 'axios'
+import {  ref,  onUpdated } from 'vue';
+import G from '../fetchAPI';
 
 // Initial Array to store data that'll be fetced from backend
 const articles = ref([]);
 // const url = "http://localhost:3000/animenewsnetwork/data";
-const url = "https://news-scrapper-app.vercel.app/animenewsnetwork/data";
+const url = "/animenewsnetwork/data";
 
-onBeforeMount(() => {
-    axios.get(url)
-        .then(response => {
-            articles.value = response.data
-            // console.log(articles.value[0]);
-        })
-        .catch(error => {
-            console.error(error);
-        })
-})
+const getData = async ()=>{
+    let rp=  await G.doAjax(url);
+    if(!rp) return;
+    articles.value = rp;
+}
+getData()
 
 onUpdated(()=>{
     window.scrollTo(0,500);
