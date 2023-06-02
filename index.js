@@ -10,9 +10,6 @@ const path = require('path');
 const url1 = "https://www.animenewsnetwork.com/";
 const url2 = "https://www.hotcars.com/";
 const url3 = "https://www.developer-tech.com/";
-// const url2 = "https://www.autoblog.com/tag/jdm/";
-// const url2 = "https://carbuzz.com/tags/jdm";
-// const url3 = "https://www.wired.com/tag/programming/";
 //* Axios returns promises that's why we're using .then()
 
 app.use(cors()); //* Setting up CORS for Cross Origin Request 
@@ -60,7 +57,7 @@ app.get('/cars/data', (req, res) => {
             const articles = [];
             $('div.section-latest-news div.display-card.article', html).each(function () {
                 const title = $(this).find('h5.display-card-title a').text();
-                const link = $(this).find('h5.display-card-title a').attr('href');
+                const link = "https://www.hotcars.com" + $(this).find('h5.display-card-title a').attr('href');
                 const content = $(this).find('p.display-card-excerpt').text();
                 const time = $(this).find('time.display-card-date').html();
                 const label = $(this).find('div.w-display-card-category a').text();
