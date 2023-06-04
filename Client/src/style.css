@@ -27,7 +27,8 @@
 
 body {
   margin: 0;
-  background: url('./assets/bg.jpg') no-repeat center center/cover;
+  background: url('./assets/bg.webp') no-repeat center center/cover;
+  background-color: #00397c ;
   min-width: 320px;
   min-height: 100vh;
 }
