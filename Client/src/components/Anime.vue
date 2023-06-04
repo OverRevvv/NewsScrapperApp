@@ -1,5 +1,5 @@
 <script setup>
-import {  ref,  onUpdated } from 'vue';
+import { ref, onUpdated } from 'vue';
 import G from '../fetchAPI';
 
 // Initial Array to store data that'll be fetced from backend
@@ -7,18 +7,18 @@ const articles = ref([]);
 // const url = "http://localhost:3000/animenewsnetwork/data";
 const url = "/animenewsnetwork/data";
 
-const getData = async ()=>{
-    let rp=  await G.doAjax(url);
-    if(!rp) return;
+const getData = async () => {
+    let rp = await G.doAjax(url);
+    if (!rp) return;
     articles.value = rp;
 }
 getData()
 
-onUpdated(()=>{
-    window.scrollTo(0,500);
-    setTimeout(()=>{
-    window.scrollTo(0,0);
-    },10);
+onUpdated(() => {
+    window.scrollTo(0, 500);
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 10);
 })
 </script>
 <template>
@@ -63,6 +63,7 @@ onUpdated(()=>{
     white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 1px 1px 0 black;
 }
 
 .animeCards a {

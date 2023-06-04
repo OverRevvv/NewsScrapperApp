@@ -58,6 +58,7 @@ onUpdated(() => {
     white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 1px 1px 0 black;
 }
 
 .cards a {

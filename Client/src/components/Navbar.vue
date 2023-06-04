@@ -9,12 +9,6 @@
             <li><router-link to="/tech">Tech</router-link></li>
         </ul>
     </header>
-    <!-- <router-view /> -->
-    <router-view v-slot="{ Component }">
-        <transition enter-active-class="animate__animated animate__fadeInUp" mode="out-in">
-            <component :is="Component" />
-        </transition>
-    </router-view>
 </template>
 <style>
 header {
@@ -60,7 +54,7 @@ header ul li a {
     font-size: 1.5rem;
     text-decoration: none;
     padding: 6px 15px;
-    color: #fff;
+    color: #0066ff;
     border-radius: 20px;
 }
 
@@ -68,7 +62,6 @@ header ul li a:hover {
     padding-bottom: 20px;
     border-radius: 0;
     border-bottom: 5px solid #b500ff;
-    /* color: #2b1055; */
     color: #b500ff;
 }
 
