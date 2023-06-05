@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './components/Home.vue';
 
 //* Lazy Loading
+// const Home = () => import('./components/Home.vue');
 const Anime = () => import('./components/Anime.vue');
 const Cars = () => import('./components/Cars.vue');
 const Tech = () => import('./components/Tech.vue');
