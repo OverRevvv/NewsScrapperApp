@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onUpdated } from 'vue';
+import { ref } from 'vue';
 import G from '../fetchAPI';
 const articles = ref([]);
 // const url = "http://localhost:3000/cars/data";
@@ -11,12 +11,6 @@ const getData = async ()=>{
     articles.value = rp;
 }
 getData()
-onUpdated(() => {
-    window.scrollTo(0, 1000);
-    setTimeout(() => {
-        window.scrollTo(0, 0);
-    }, 10);
-})
 </script>
 <template>
     <div class="container">
@@ -31,7 +25,7 @@ onUpdated(() => {
                 <p class="previewSkeleton"></p>
             </div>
         </div>
-        <div class="cards" v-motion-pop-visible v-for="(article, index) in articles" :key="index">
+        <div class="cards" v-for="(article, index) in articles" :key="index">
             <a :href="article.link" target="_blank">
                 <div class="figure" v-html="article.figure"></div>
                 <div class="details">

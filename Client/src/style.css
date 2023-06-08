@@ -31,6 +31,7 @@ body {
   background-color: #00397c ;
   min-width: 320px;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -45,6 +46,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   color: white;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -79,6 +81,7 @@ button:focus-visible {
   min-width: 320px;
   width: 100%;
   text-align: center;
+  scroll-behavior: smooth;
 }
 
 @media screen and (min-width: 340px) and (max-width: 500px) {

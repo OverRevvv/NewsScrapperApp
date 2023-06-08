@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onUpdated } from 'vue';
+import { ref } from 'vue';
 import G from '../fetchAPI';
 
 // Initial Array to store data that'll be fetced from backend
@@ -13,13 +13,6 @@ const getData = async () => {
     articles.value = rp;
 }
 getData()
-
-onUpdated(() => {
-    window.scrollTo(0, 500);
-    setTimeout(() => {
-        window.scrollTo(0, 0);
-    }, 10);
-})
 </script>
 <template>
     <div class="container">
@@ -34,7 +27,7 @@ onUpdated(() => {
                 <p class="previewSkeleton"></p>
             </div>
         </div>
-        <div class="animeCards" v-motion-pop-visible v-for="(article, i) in articles" :key="article.id">
+        <div class="animeCards" v-for="(article, i) in articles" :key="article.id">
             <a :href="article.link" target="_blank">
                 <div class="animeCover"
                     :style="{ background: `url(${article.img}) no-repeat center`, backgroundPosition: `${article.imgStyle}` }">
@@ -104,7 +97,6 @@ onUpdated(() => {
     background: transparent;
     backdrop-filter: saturate(160%) blur(40px);
 }
-
 .topicSkeleton {
     margin: 0;
 }

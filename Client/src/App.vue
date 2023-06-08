@@ -4,11 +4,12 @@ import footerBar from './components/footer.vue';
 </script>
 <template>
   <navbar />
-    <router-view v-slot="{ Component }">
-        <transition enter-active-class="animate__animated animate__fadeInUp" mode="out-in">
+    <!-- <router-view v-slot="{ Component }">
+        <transition>
             <component :is="Component" />
         </transition>
-    </router-view>
+    </router-view> -->
+    <router-view/>
     <footerBar/>
 </template>
 
