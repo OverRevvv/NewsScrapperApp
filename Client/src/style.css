@@ -31,7 +31,6 @@ body {
   background-color: #00397c ;
   min-width: 320px;
   min-height: 100vh;
-  scroll-behavior: smooth;
 }
 
 .container {

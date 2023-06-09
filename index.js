@@ -104,11 +104,15 @@ app.get('/tech/data', (req, res) => {
 //* Serve static files from the `dist` folder
 app.use(express.static(path.join(__dirname, "/Client/dist")));
 
-//* Create a route for the index page and catch-all route for all other requests
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "/Client/dist/index.html"));
+//* Create a route for the index page
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist", "/Client/dist/index.html"));
 });
 
+//*  catch-all route for all other requests
+app.get("*", (req, res) => {
+    res.redirect('/')
+});
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 })

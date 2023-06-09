@@ -40,10 +40,6 @@ getData()
     </div>
 </template>
 <style scoped>
-/* .cards{
-    width: 400px; 
-    height: 400px;
-} */
 
 .techCover {
     width: 100%;
