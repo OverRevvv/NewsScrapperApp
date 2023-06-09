@@ -106,13 +106,14 @@ app.use(express.static(path.join(__dirname, "/Client/dist")));
 
 //* Create a route for the index page
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "dist", "/Client/dist/index.html"));
+  res.sendFile(path.join(__dirname, "/Client/dist/index.html"));
 });
 
-//*  catch-all route for all other requests
+//* Catch-all route for all other requests
 app.get("*", (req, res) => {
-    res.redirect('/')
+  res.sendFile(path.join(__dirname, "/Client/dist/index.html"));
 });
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 })
