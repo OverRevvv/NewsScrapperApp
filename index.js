@@ -104,17 +104,10 @@ app.get('/tech/data', (req, res) => {
 //* Serve static files from the `dist` folder
 app.use(express.static(path.join(__dirname, "/Client/dist")));
 
-//* Create a route for the index page
-app.get("/", (req, res) => {
+//* Create a route for the index page and catch-all route for all other requests
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "/Client/dist/index.html"));
 });
-
-//* Create a catch-all route for all other requests
-app.get("*", (req, res) => {
-  // Respond with a 404 error for all non-API requests
-//   res.status(404).send("404 Not Found");
-    res.redirect("/")
-})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
