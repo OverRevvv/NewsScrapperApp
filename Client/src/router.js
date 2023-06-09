@@ -7,10 +7,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 //* Lazy Loading
 
 const routes = [
-  { path: '/', component: import('./components/Home.vue'), },
-  { path: '/anime', component: import('./components/Anime.vue') },
-  { path: '/cars', component: import('./components/Cars.vue') },
-  { path: '/tech', component: import('./components/Tech.vue') },
+  { path: '/', component: import('./components/Home.vue')},
+  { path: '/anime', component: import('./components/Anime.vue')},
+  { path: '/cars', component: import('./components/Cars.vue')},
+  { path: '/tech', component: import('./components/Tech.vue')},
 ];
 
 const router = createRouter({
