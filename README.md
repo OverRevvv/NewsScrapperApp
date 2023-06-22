@@ -1,7 +1,7 @@
 # WebScrapperApp
-Full Stack Web Scrapper App
 
-## Work in progress..................
+Full Stack News Scrapper App
+
 
 
 
