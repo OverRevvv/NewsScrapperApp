@@ -40,7 +40,7 @@ npm install
 Start the development backend server on http://localhost:3000
 
 ```bash
-npm run dev
+npm run start
 ```
 Start the development Vue + Vite app server on http://localhost:5172
 
