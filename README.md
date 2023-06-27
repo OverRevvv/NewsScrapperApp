@@ -8,7 +8,7 @@ A full stack news scrapper that is scrapping data from multiple target websites 
 
 <br>
 
-<a href="https://news-scrapper-app.vercel.app/" target="_blank">🔗 LINK : Click Me!!</a>
+[🔗 LINK : Click Me!!](https://news-scrapper-app.vercel.app/)
 
 <br>
 
@@ -19,7 +19,7 @@ A full stack news scrapper that is scrapping data from multiple target websites 
 - Cheerio.js
 - Express.js
 
-<!-- ![drifto](https://media.tenor.com/KztJoFknRqQAAAAd/ryosuke-takumi.gif) -->
+
 ## Setup
 Make sure to install the dependencies for both frontend and backend.
 
