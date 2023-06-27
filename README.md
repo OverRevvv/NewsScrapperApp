@@ -8,8 +8,10 @@ A full stack news scrapper that is scrapping data from multiple target websites 
 
 <br>
 
-[🔗 LINK]([https://link-url-here.org](https://news-scrapper-app.vercel.app/))
+<a href="https://news-scrapper-app.vercel.app/" target="_blank">🔗 LINK : Click Me!!</a>
+
 <br>
+
 # Tech
 - Vue.js
 - Vite.js
