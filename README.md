@@ -2,7 +2,14 @@
 
 ## What is this?
 A full stack news scrapper that is scrapping data from multiple target websites and serving that data via a app.
+<br>
 
+![news-scrapper-app vercel app_](https://github.com/OverRevvv/NewsScrapperApp/assets/98686837/f6115145-c2f7-4ab9-99bf-4f6cf444f9f3)
+
+<br>
+
+[🔗 LINK]([https://link-url-here.org](https://news-scrapper-app.vercel.app/))
+<br>
 # Tech
 - Vue.js
 - Vite.js
