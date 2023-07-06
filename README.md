@@ -2,6 +2,15 @@
 
 ## What is this?
 A full stack news scrapper that is scrapping data from multiple target websites and serving that data via a app.
+<br>
+
+![news-scrapper-app vercel app_](https://github.com/OverRevvv/NewsScrapperApp/assets/98686837/f6115145-c2f7-4ab9-99bf-4f6cf444f9f3)
+
+<br>
+
+[🔗 LINK : Click Me!!](https://news-scrapper-app.vercel.app/)
+
+<br>
 
 # Tech
 - Vue.js
@@ -10,7 +19,7 @@ A full stack news scrapper that is scrapping data from multiple target websites 
 - Cheerio.js
 - Express.js
 
-<!-- ![drifto](https://media.tenor.com/KztJoFknRqQAAAAd/ryosuke-takumi.gif) -->
+
 ## Setup
 Make sure to install the dependencies for both frontend and backend.
 
@@ -40,7 +49,7 @@ npm install
 Start the development backend server on http://localhost:3000
 
 ```bash
-npm run dev
+npm run start
 ```
 Start the development Vue + Vite app server on http://localhost:5172
 
