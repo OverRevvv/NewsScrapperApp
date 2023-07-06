@@ -28,4 +28,10 @@ footer span a {
 footer span a:hover {
     text-decoration: underline;
 }
+
+@media screen and (min-width: 340px) and (max-width: 500px) {
+    footer {
+        font-size: 0.9rem;
+    }
+}
 </style>

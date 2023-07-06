@@ -12,9 +12,10 @@
 </template>
 <style>
 header {
-    position: relative;
+    position: sticky;
+    z-index: 10;
     top: 0;
-    padding: 10px 100px;
+    padding: 3px 100px;
     left: 0;
     width: 100vw;
     display: flex;
@@ -56,6 +57,7 @@ header ul li a {
     padding: 6px 15px;
     color: #0066ff;
     border-radius: 20px;
+    text-shadow: 1px 1px 0 black;
 }
 
 header ul li a:hover {
@@ -71,9 +73,9 @@ header ul li a:focus {
 
 header ul li a:hover,
 .router-link-active {
-    padding-bottom: 20px;
+    padding-bottom: 14px;
     border-radius: 0;
-    border-bottom: 5px solid #b500ff;
+    border-bottom: 3px solid #b500ff;
     /* color: #2b1055; */
     color: #b500ff;
 }
@@ -87,8 +89,8 @@ header .logo.router-link-active {
 
 @media screen and (min-width: 340px) and (max-width: 500px) {
     header {
-        padding: 10px 0;
-        position: relative;
+        padding: 0px 0;
+        position: fixed;
         top: 0;
         width: 100vw;
         align-items: center;
@@ -96,13 +98,29 @@ header .logo.router-link-active {
 
     header .logo {
         position: relative;
-        left: 8px;
+        left: 2rem;
+    }
+
+    header .logo img {
+        width: 2.5rem;
+    }
+
+    header ul li a:hover,
+    .router-link-active {
+        padding-bottom: 10px;
+        border-bottom: 4px solid #b500ff;
     }
 
     header ul li {
         list-style: none;
-        margin-left: 5px;
+        margin-left: 8px;
     }
 
+    header ul li a {
+        font-size: 1.2rem;
+        text-decoration: none;
+        padding: 0 15px;
+        border-radius: 20px;
+    }
 }
 </style>

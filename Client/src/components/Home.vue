@@ -14,6 +14,7 @@
 <style>
 section {
     padding: 0;
+    margin: 0;
     height: 100vh;
     width: 100vw;
     background: #11111121;
@@ -75,11 +76,14 @@ section p {
 @media screen and (min-width: 340px) and (max-width: 500px) {
     .animateCharacter {
         position: absolute;
-        top: 9rem;
+        top: 10rem;
         font-size: 3rem;
     }
-
+    section p{
+        font-size: 1.3rem;
+    }
     .source {
-        margin-top: 4rem;
+        position: absolute;
+        bottom: 8rem;
     }
 }</style>
