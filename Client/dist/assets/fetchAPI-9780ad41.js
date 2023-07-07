@@ -1,0 +1,1 @@
+class e{constructor(s){this.baseUrl=s}async doAjax(s){try{const t=await fetch(`${this.baseUrl}${s}`);if(t.ok)return await t.json();throw new Error(`Response failed with status ${t.status}`)}catch(t){return console.log(t),null}}}const o=new e("https://newsscrapper.vercel.app/");export{o as G};

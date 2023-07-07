@@ -20,6 +20,6 @@ class Global {
   }
 }
 
-const G = new Global("https://news-scrapper-app.vercel.app");
+const G = new Global("https://newsscrapper.vercel.app/");
 
 export default G;

@@ -3,7 +3,7 @@ const cheerio = require('cheerio'); //* Module equivalent to JQuery but for Serv
 const express = require('express'); //* Basic backend framework  
 const cors = require('cors')
 const app = express() //* using express
-const port = 3000 //* Basic Port 
+const port = process.env.PORT|| 3000 //* Basic Port 
 const path = require('path');
 
 //* Target websites
