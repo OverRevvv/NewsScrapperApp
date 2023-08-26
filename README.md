@@ -8,7 +8,7 @@ A full stack news scrapper that is scrapping data from multiple target websites 
 
 <br>
 
-[🔗 LINK : Click Me!!](https://news-scrapper-app.vercel.app/)
+[🔗 LINK : Click Me!!](https://newsscrapper.vercel.app/)
 
 <br>
 
